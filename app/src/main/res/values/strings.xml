@@ -5,4 +5,7 @@
     <string name="description_jv">Akumajō Dracula X: Chi no Rondo, parfois nommé Castlevania: Rondo of Blood ou Dracula X, est un jeu vidéo d\'action et de plates-formes développé et édité par Konami en 1993 sur PC Engine.</string>
     <string name="prix_jv">350.25</string>
     <string name="btn_enter">ENTRER</string>
+    <string name="titre_details">Titre détails du jeux</string>
+    <string name="btn_retour_jeux">RETOUR</string>
+    <string name="btn_acheter">ACHETER</string>
 </resources>

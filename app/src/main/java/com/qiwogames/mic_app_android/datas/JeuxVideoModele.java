@@ -1,6 +1,8 @@
 package com.qiwogames.mic_app_android.datas;
 
-public class JeuxVideoModele {
+import java.io.Serializable;
+
+public class JeuxVideoModele implements Serializable {
     private String nom_jeux;
     private int image_jeux;
     private String description_jeux;

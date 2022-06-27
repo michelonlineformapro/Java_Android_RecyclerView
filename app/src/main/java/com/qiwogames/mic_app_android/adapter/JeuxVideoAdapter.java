@@ -1,5 +1,7 @@
 package com.qiwogames.mic_app_android.adapter;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.qiwogames.mic_app_android.DetailsJeuxActivity;
+import com.qiwogames.mic_app_android.MainActivity;
 import com.qiwogames.mic_app_android.R;
 import com.qiwogames.mic_app_android.datas.JeuxVideoModele;
 
@@ -67,7 +71,7 @@ public class JeuxVideoAdapter extends RecyclerView.Adapter<JeuxVideoAdapter.View
 
     //La liason entre les variables, le xml et le modele
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         //appel de la classe modele assigné au tableau de données
         JeuxVideoModele modeleJeux = localDataJeuxVideo[position];
         //Recup des valeur du modele avec les accesseur (getter) a la bonne position dans la liste et remplace le contenu de la vue de chaque elements
@@ -82,7 +86,13 @@ public class JeuxVideoAdapter extends RecyclerView.Adapter<JeuxVideoAdapter.View
         holder.dispositionLineaire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(view.getContext(),"clic : "+ modeleJeux.getDescription_jeux(),Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(view.getContext(), DetailsJeuxActivity.class);
+                intent.putExtra("NOM_JEUX", localDataJeuxVideo[position].getNom_jeux());
+                intent.putExtra("IMAGE_JEUX", localDataJeuxVideo[position].getImage_jeux());
+                intent.putExtra("DESCRIPTION_JEUX", localDataJeuxVideo[position].getDescription_jeux());
+                intent.putExtra("PRIX_JEUX", localDataJeuxVideo[position].getPrix_jeux());
+                //Toast.makeText(view.getContext(),"clic : "+ modeleJeux.getDescription_jeux(),Toast.LENGTH_LONG).show();
+                view.getContext().startActivity(intent);
             }
         });
 
